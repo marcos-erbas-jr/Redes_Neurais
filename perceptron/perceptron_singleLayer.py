@@ -1,11 +1,10 @@
-# Montar peceptron com porta AND
-import matplotlib.pyplot as plt
+# Modelo Perceptron com uma camada
 
 entradas = [[0, 0], [0, 1], [1, 0], [1, 1]]
-# Gabarito porta OR
+# Gabarito porta OR (Problema linear)
 gabarito = [0, 1, 1, 1]
 
-# Gabarito porta AND
+# Gabarito porta AND (Problema linear)
 #gabarito = [0, 0, 0, 1]
 
 peso1 = 0
@@ -31,8 +30,6 @@ while True:
         erro = gabarito[n] - output
 
         if erro != 0:
-            pontos1.append(peso1)
-            pontos2.append(peso2)
             peso1 = peso1 + (taxaAprendizagem * x1 * erro)
             peso2 = peso2 + (taxaAprendizagem * x2 * erro)
         else:
@@ -44,10 +41,6 @@ while True:
         print(f"Pesos: {peso1, peso2}")
         print("__________________________________________________")
     else:
-        x = pontos1
-        y = pontos2
-        plt.plot(x, y, 'ro')
-        plt.show()
         print(f"A eficiência do Perceptron está em: {eficiencia}%")
         print(f"Peso final: {peso1, peso2}")
         print("__________________________________________________")
